@@ -1,16 +1,59 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
 
+        input, button {
+            margin: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+    <title>First Non-Repeated Character Finder</title>
+</head>
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+    <h2>Find the First Non-Repeated Character</h2>
+
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Enter string">
+
+    <button onclick="findFirstNonRepeatedChar()">Find</button>
+
+    <p id="result"></p>
+
+    <script>
+        function firstNonRepeatedChar(inputString) {
+            // Your JavaScript logic to find the first non-repeated character
+            for (let i = 0; i < inputString.length; i++) {
+                let char = inputString.charAt(i);
+                if (inputString.indexOf(char) === inputString.lastIndexOf(char)) {
+                    return char;
+                }
+            }
+            return null;
+        }
+
+        function findFirstNonRepeatedChar() {
+            const inputString = document.getElementById('inputString').value;
+            const resultElement = document.getElementById('result');
+            
+            const result = firstNonRepeatedChar(inputString);
+
+            if (result !== null) {
+                resultElement.innerText = `The first non-repeated character is: ${result}`;
+            } else {
+                resultElement.innerText = 'No non-repeated character found.';
+            }
+        }
+    </script>
 
 </body>
-
 </html>
